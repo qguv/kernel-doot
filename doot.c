@@ -56,9 +56,16 @@ static int filecmp(const char *filename, const char *ext)
 }
 
 
+static bool chance(int prob) {
+    unsigned int i;
+    get_random_bytes(&i, sizeof(unsigned int));
+    return i % prob == 0;
+}
+
+
 static bool to_doot_or_not_to_doot(void) {
-    // Always dooting.
-    return true;
+    const int dootiness = 20; // 1 in dootiness chance of skeltal visit
+    return chance(dootiness);
 }
 
 
