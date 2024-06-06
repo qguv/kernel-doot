@@ -10,10 +10,10 @@ obj-m += doot.o
 .PHONY: all clean
 
 all:
-	make -C $(KDIR) M=$(PWD) modules
+	make -C $(KDIR) M=$(shell pwd) modules
 
 clean:
-	make -C $(KDIR) M=$(PWD) clean
+	make -C $(KDIR) M=$(shell pwd) clean
 
 install: all
 	mkdir -p /usr/local/share/skeltal/
